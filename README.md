@@ -5,19 +5,37 @@ A collection of beginner-friendly C programs demonstrating menu-driven interacti
 ## Programs
 
 ### `atm.c` — ATM simulator
-A simple console ATM with PIN login, balance checking, deposits, withdrawals, and an exit option. It starts with a sample balance of Rs. 5,000 and uses PIN `1234`. This is an educational example; it does not connect to a real bank or securely store credentials.
+A simple console ATM with PIN login, balance checking, deposits, withdrawals, and an exit option. It starts with a sample balance of Rs. 5,000 and uses PIN `1234`. This is an educational example.
 
 ![Sample ATM program output](images/atm-output.svg)
 
 ### `CALCI.c` — Calculator
-A menu-based calculator for addition, subtraction, multiplication, and division. Division by zero is handled with a message. This source uses `conio.h` functions (`clrscr()` and `getch()`), which are available in some legacy compiler environments but not standard C libraries; a modern compiler may need those calls removed or replaced.
+A menu-based calculator for addition, subtraction, multiplication, and division. Division by zero is handled with a message. This source uses `conio.h` functions (`clrscr()` and `getch()`), which may require a compatible compiler or adjustments.
 
 ![Sample calculator program output](images/calculator-output.svg)
 
 ### `FEEDBACK.c` — Feedback file example
-Writes a short feedback text to `feedback.txt`, reads the file back, and prints its contents. It also uses legacy `conio.h` functions, so compiler compatibility may require adjustments as described above. The program overwrites `feedback.txt` when it starts.
+Writes a short feedback text to `feedback.txt`, reads the file back, and prints its contents. It also uses legacy `conio.h` functions, so compiler compatibility may require adjustments.
 
 ![Sample feedback program output](images/feedback-output.svg)
+
+### `STDDATABASE.c` — Student database record
+Prompts for a roll number, name, department, and marks, then prints them as a student record. The name and department are read as single words (no spaces). For example:
+
+```text
+Enter Roll Number:101
+Enter Name:Sabareesh
+Enter Department:CSE
+Enter Marks:95
+
+STUDENT RECORD
+Roll Number:101
+Name:Sabareesh
+Department:CSE
+Marks:95
+```
+
+![Sample student database program output](images/stddatabase-output.svg)
 
 ### `STDGRADE.c` — Student grade report
 Accepts a student name and five marks as command-line arguments, then prints the total, average, pass/fail result, and (if passed) a grade. For example:
@@ -37,7 +55,7 @@ gcc atm.c -o atm
 ./atm
 ```
 
-`CALCI.c` and `FEEDBACK.c` use legacy `conio.h`; the default GCC toolchain on many modern systems does not provide it. `STDGRADE.c` expects six arguments after the executable: a name followed by five marks.
+`CALCI.c` and `FEEDBACK.c` use legacy `conio.h`; the default GCC toolchain on many modern systems does not provide it. `STDGRADE.c` expects six arguments after the executable: a name followed by five marks. `STDDATABASE.c` reads its four fields interactively.
 
 ## Author
 
